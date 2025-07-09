@@ -1,0 +1,17 @@
+{% extends "padre.html" %}
+{% block title %}Proveedores{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">Crear proveedor</h2>
+
+<div style="width: 50%; margin: auto;">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+
+<hr>
+
+{% endblock %}

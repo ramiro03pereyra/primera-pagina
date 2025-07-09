@@ -1,0 +1,15 @@
+{% extends "padre.html" %}
+
+{% block title %}Cargar nuevo producto{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Cargar nuevo producto</h2>
+
+<div style="width: 40%; margin: auto;">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="display: block; margin: 1rem auto;">Guardar</button>
+  </form>
+</div>
+{% endblock %}

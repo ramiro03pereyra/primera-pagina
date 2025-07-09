@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+{% block title %}Lista de pedidos{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">Lista de pedidos</h2>
+
+<div style="width: 60%; margin: auto;">
+  <ul>
+    {% for pedido in pedidos %}
+      <li style="margin-bottom: 20px;">
+        <strong>Pedido #{{ pedido.id }}</strong><br>
+        Fecha: {{ pedido.fecha }}<br>
+        Total: ${{ pedido.total }}<br>
+        Productos:
+        <ul>
+          {% for producto in pedido.productos.all %}
+            <li>{{ producto.nombre }} — ${{ producto.precio }}</li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% empty %}
+      <li>No hay pedidos registrados aún.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+
+{% block title %}Lista de proveedores{% endblock %}
+
+
+{% block content %}
+<h2>Lista Proveedores</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+ 
+</form>
+
+
+<ul>
+  {% for proveedor in proveedores %}
+    <li>{{ proveedor.nombre }} - {{ proveedor.direccion }} - {{ proveedor.telefono }}</li>
+  {% empty %}
+    <li>No hay proveedores cargados aún.</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

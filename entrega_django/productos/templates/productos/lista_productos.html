@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{% block title %}Lista de Productos{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Lista de Productos</h2>
+
+<div style="width: 60%; margin: auto;">
+  {% if productos %}
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px;">Nombre</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Precio</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Fecha de Vencimiento</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for producto in productos %}
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">{{ producto.nombre }}</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">${{ producto.precio }}</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">{{ producto.fecha_vencimiento }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No hay productos registrados.</p>
+  {% endif %}
+</div>
+{% endblock %}
